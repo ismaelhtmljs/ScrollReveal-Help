@@ -1,0 +1,24 @@
+//codigo para el ScrollReveal para blog o paginas web
+//el codigo esta hecho en JS(javaScript) , su función es para detectar si el usuario escrolea para abajo y para arriba, para poder hacer animaciones de escroleo
+
+document.addEventListener('DOMContentLoaded', () => {
+    const NombreDeTuVariable = document.getElementById('la_id_de_tu_clase'); // asegurate de colocar tu ID para que funcione 
+    let scrollAnterior = 0;
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const alturaVentana = window.innerHeight;
+        //ojo el "[NombreDeTuVariable]" solo es el nombre, los "[]" no se coloca
+        const [NombreDeTuVariable] = aside.getBoundingClientRect().top + scrollTop; //esto es para verificar la posición de tu elemento 
+
+        if (scrollTop > scrollAnterior) { //condicional que verificia si escrolea hacia abajo
+            if (asideTop < alturaVentana + scrollTop) {
+                NombreDeTuVariable.classList.add('visible'); //crea una clase "class" a tu elemento de html
+            }
+        } else { //si escrolea hacia abajo
+            NombreDeTuVariable.classList.remove('visible'); //borra la clase "class" de tu elemento html
+        }
+
+        scrollAnterior = scrollTop; // Actualiza la posición de desplazamiento anterior
+    });
+});
